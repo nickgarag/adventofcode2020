@@ -3,16 +3,20 @@
 with open('slope.txt') as f:
   slope = f.read().splitlines()
 
+row_len = len(slope[0])
 slope_size = len(slope)
 down = 0
 right = 0
-
 tree_count = 0
 dot_count = 0
+
+
 while down < slope_size:
-  if right == 33:
+  if right > row_len - 1:
+    right_position = right - row_len
+    print(right_position)
     right = 0
-  print(down, right, slope[down][right])
+    right += right_position
   if slope[down][right] == '#':
     tree_count += 1
   if slope[down][right] == '.':
@@ -20,9 +24,5 @@ while down < slope_size:
   down += 1
   right += 3
 
-
 print("There are {} trees.".format(tree_count))
 print("There are {} dots.".format(dot_count))
-
-    
-    
