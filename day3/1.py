@@ -14,7 +14,6 @@ dot_count = 0
 while down < slope_size:
   if right > row_len - 1:
     right_position = right - row_len
-    print(right_position)
     right = 0
     right += right_position
   if slope[down][right] == '#':
